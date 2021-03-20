@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
-    ImageView translate , example, help;
+    ImageView translate , example, help, category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,8 @@ public class HomeActivity extends AppCompatActivity {
         translate = findViewById(R.id.translate);
         example = findViewById(R.id.examples);
         help = findViewById(R.id.help);
-
+        category = findViewById(R.id.catagories);
+        getSupportActionBar().hide();
 
         translate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +29,13 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, CatagoriesActivity.class);
+                startActivity(intent);
+            }
+        });
         example.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
